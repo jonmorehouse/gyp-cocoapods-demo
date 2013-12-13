@@ -13,7 +13,10 @@
 		# sdk directory that we are currently using
 		"ios_sdk_dir": "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS",
 
-		"plist_file": "src/app-Info.plist"
+		"plist_file": "src/app-Info.plist",
+
+		"build_directory": "<!(pwd)/build",
+
 	},
 
 	# global conditions for application
@@ -23,10 +26,12 @@
 
 			"INFOPLIST_FILE" : "<(plist_file)",
 			"CODE_SIGN_IDENTITY": "iPhone Developer: Sean McCoy (VB4U59V8X7)",
-			"PRODUCT_NAME": "app",
+			"PRODUCT_NAME": "fruitstrap-demo",
 			"GCC_PREFIX_HEADER": "",
 			"GCC_PRECOMPILE_PREFIX_HEADER": "",
 			"ALWAYS_SEARCH_USER_PATHS": "No",
+			"INSTALLATION_DIRECTORY": "<(build_directory)",
+			"CONFIGURATION_BUILD_DIR": "<(build_directory)",
 		},
 
 		"link_settings": {
@@ -38,8 +43,6 @@
 				"<(ios_sdk_dir)<(ios_sdk_version).sdk/System/Library/Frameworks/UIKit.framework",
 			],
 				
-			#"_sources": ["!@(find src -type f \( -name \"*.m\" -o -name \"*.h\" -o -name \"*.xib\" -o -name \"*.plist\" \))"],
-			"sources": ['!@(pkg-config --libs-only-l apr-1)']
 		}
 
 	}, # GLOBAL CONDITIONS ETC
@@ -51,12 +54,16 @@
 			"target_name": "debug",
 			"type": "executable",
 			"mac_bundle": 1,
+
 			"include_dirs" : [
 
 				"src"
 			],
 
+                        # now go ahead and grab all of the correct source files for this application and insert them here
+                        "sources": ["<!@(find src -type f \( -name \"*.m\" -o -name \"*.h\" -o -name \"*.xib\" -o -name \"*.plist\" \))"],
 
+			# link the correct files / libraries
 			"link_settings": {
 				
 				# extra libraries needed for this target only
