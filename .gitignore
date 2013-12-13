@@ -20,3 +20,4 @@ build/
 *.BASE.*
 
 apps
+app.xcodeproj/
