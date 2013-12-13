@@ -16,7 +16,6 @@ build/
 *.orig
 *.BACKUP.*
 *.REMOTE.*
-*.LOCAL.*
 *.BASE.*
 
 apps

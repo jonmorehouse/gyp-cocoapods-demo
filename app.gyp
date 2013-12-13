@@ -13,6 +13,15 @@
 	# global conditions for application
 	"target_defaults" : {
 
+		"build_settings": {
+
+
+
+			"deployment": {
+
+				"installation_directory": "/Users/MorehouseJ09/Desktop"
+			},
+		},
 		"link_settings": {
 
 			"libraries": [
