@@ -18,10 +18,7 @@
 			"libraries": [
 
 				"<(ios_sdk_dir)<(ios_sdk_version).sdk/System/Library/Frameworks/CoreGraphics.framework",
-				"<(ios_sdk_dir)<(ios_sdk_version).sdk/System/Library/Frameworks/CoreText.framework",
 				"<(ios_sdk_dir)<(ios_sdk_version).sdk/System/Library/Frameworks/Foundation.framework",
-				"<(ios_sdk_dir)<(ios_sdk_version).sdk/System/Library/Frameworks/ImageIO.framework",
-				"<(ios_sdk_dir)<(ios_sdk_version).sdk/System/Library/Frameworks/MobileCoreServices.framework",
 				"<(ios_sdk_dir)<(ios_sdk_version).sdk/System/Library/Frameworks/UIKit.framework",
 			],
 		}
@@ -30,30 +27,36 @@
 
 	"targets": [
 		{
-			"target_name": "PulsePoll",
+			"target_name": "app",
 			"type": "executable",
 			"mac_bundle": 1,
 			"include_dirs" : [
 
+				"src"
 			],
 
 			"sources": [
-
+				"src/SGAppDelegate.m", 
+				"src/SGViewController.m",
+				"src/main.m",
+				"src/fruitstrap-demo-Info.plist"
 			],
 
 			"link_settings": {
 				
-				# default libraries to not include
-				"libraries!": [
+				# extra libraries needed for just this build target
+				"libraries": [
+					
+				#	"<(ios_sdk_dir)<(ios_sdk_version).sdk/System/Library/Frameworks/SenTestingKit.framework",
+				],
 
-					"<(ios_sdk_dir)<(ios_sdk_version).sdk/System/Library/Frameworks/MobileCoreServices.framework",
-					"<(ios_sdk_dir)<(ios_sdk_version).sdk/System/Library/Frameworks/UIKit.framework",
-				]
+				# default libraries to not include
+				"libraries!": []
 			},
 
 			"xcode_settings" : {
 
-				"INFOPLIST_FILE" : "src/substructure/PulsePoll-Info.plist",
+				"INFOPLIST_FILE" : "src/fruitstrap-demo-Info.plist",
 				"SDKROOT": "iphoneos",
 				"TARGETED_DEVICE_FAMILY": "1,2",
 				"CODE_SIGN_IDENTITY": "iPhone Developer",
