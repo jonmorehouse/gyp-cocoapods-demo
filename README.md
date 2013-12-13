@@ -29,4 +29,16 @@ cd fruitstrap-demo
 FRUITSTRAP_CLI=1 xcodebuild -scheme fruitstrap-demo -sdk iphoneos build
 ```
 
+Try Out Gyp
+----------
+
+Install Gyp:
+
+```
+brew tap jonmorehouse/tap
+brew install gyp
+gyp app.gyp --depth=. -f xcode -DOS=ios
+open app.xcodeproj
+```
+
 
