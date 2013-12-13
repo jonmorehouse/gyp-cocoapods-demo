@@ -21,9 +21,9 @@
 
 		"xcode_settings" : {
 
-			"INFOPLIST_FILE" : "<(plist_file)>",
-			"CODE_SIGN_IDENTITY": "",
-			"PRODUCT_NAME": "",
+			"INFOPLIST_FILE" : "<(plist_file)",
+			"CODE_SIGN_IDENTITY": "iPhone Developer: Sean McCoy (VB4U59V8X7)",
+			"PRODUCT_NAME": "app",
 			"GCC_PREFIX_HEADER": "",
 			"GCC_PRECOMPILE_PREFIX_HEADER": "",
 			"ALWAYS_SEARCH_USER_PATHS": "No",
@@ -37,15 +37,18 @@
 				"<(ios_sdk_dir)<(ios_sdk_version).sdk/System/Library/Frameworks/Foundation.framework",
 				"<(ios_sdk_dir)<(ios_sdk_version).sdk/System/Library/Frameworks/UIKit.framework",
 			],
+				
+			#"_sources": ["!@(find src -type f \( -name \"*.m\" -o -name \"*.h\" -o -name \"*.xib\" -o -name \"*.plist\" \))"],
+			"sources": ['!@(pkg-config --libs-only-l apr-1)']
 		}
 
 	}, # GLOBAL CONDITIONS ETC
 
 	# Schemes are user derived for running targets once they are built -- we don't want this as we want all developers to be able to run this automatically
-	# targets = ["device", "development (just build)", "sim (development) + run in sim", "testflight", "release"]
+	# targets = ["debug", "test", "release"]
 	"targets": [
 		{
-			"target_name": "development",
+			"target_name": "debug",
 			"type": "executable",
 			"mac_bundle": 1,
 			"include_dirs" : [
@@ -53,13 +56,6 @@
 				"src"
 			],
 
-			"sources": [
-
-				"src/SGAppDelegate.m", 
-				"src/SGViewController.m",
-				"src/main.m",
-				"src/fruitstrap-demo-Info.plist"
-			],
 
 			"link_settings": {
 				
@@ -70,30 +66,7 @@
 				"libraries!": []
 			},
 
-      			"xcode_config_file": "../config/development.xcconfig",
-
+      			"xcode_config_file": "../config/debug.xcconfig",
 		},
-		{
-			# this is responsible for placing onto the device i'm currently testing with
-			"target_name": "device",
-			"type": "executable",
-			"mac_bundle": 1,
-			"dependencies": [
-			
-				"development",
-
-			],
-			"run_as": {
-				
-				# environment variables that need to be exported to be run on this application
-				"environment": {},
-				"working_directory": "/Users/MorehouseJ09/Desktop",
-				"action": ["test.sh"]
-			},
-			
-		}, # end of target
 	]# end of all targets
-
-
-
 }
