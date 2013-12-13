@@ -16,7 +16,6 @@
 		"plist_file": "src/app-Info.plist",
 
 		"build_directory": "<!(pwd)/build",
-
 	},
 
 	# global conditions for application
@@ -42,38 +41,54 @@
 				"<(ios_sdk_dir)<(ios_sdk_version).sdk/System/Library/Frameworks/Foundation.framework",
 				"<(ios_sdk_dir)<(ios_sdk_version).sdk/System/Library/Frameworks/UIKit.framework",
 			],
-				
-		}
+		},
+
+		"type": "executable",
+		"mac_bundle": 1,
+
+		"include_dirs" : [
+
+			"src"
+		],
+
+		# now go ahead and grab all of the correct source files for this application and insert them here
+		"sources": ["<!@(find src -type f \( -name \"*.m\" -o -name \"*.h\" -o -name \"*.xib\" -o -name \"*.plist\" \))"],
+
+		# link the correct files / libraries
+		"link_settings": {
+			
+			# extra libraries needed for this target only
+			"libraries": [],
+
+			# default libraries to not include
+			"libraries!": []
+		},
 
 	}, # GLOBAL CONDITIONS ETC
 
 	# Schemes are user derived for running targets once they are built -- we don't want this as we want all developers to be able to run this automatically
 	# targets = ["debug", "test", "release"]
 	"targets": [
+
+		# debug is for device testing as well as general development testing
+		# this can also be updated to testflight as well
 		{
 			"target_name": "debug",
-			"type": "executable",
-			"mac_bundle": 1,
-
-			"include_dirs" : [
-
-				"src"
-			],
-
-                        # now go ahead and grab all of the correct source files for this application and insert them here
-                        "sources": ["<!@(find src -type f \( -name \"*.m\" -o -name \"*.h\" -o -name \"*.xib\" -o -name \"*.plist\" \))"],
-
-			# link the correct files / libraries
-			"link_settings": {
-				
-				# extra libraries needed for this target only
-				"libraries": [],
-
-				# default libraries to not include
-				"libraries!": []
-			},
-
       			"xcode_config_file": "../config/debug.xcconfig",
 		},
+
+		# test is for testing only - unit testing in general
+		{
+			"target_name": "test",
+      			"xcode_config_file": "../config/test.xcconfig",
+		},
+
+		# release for iOS application development
+		{
+			"target_name": "release",
+      			"xcode_config_file": "../config/release.xcconfig",
+		},
+
+
 	]# end of all targets
 }
