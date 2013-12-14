@@ -1,4 +1,4 @@
-all: project pods build
+all: clean gyp pods open
 
 build:
 	xcodebuild
@@ -8,6 +8,10 @@ gyp:
 
 pods:
 	pod install 
+
+open:
+
+	open app.xcworkspace
 
 clean:
 	rm -rf ~/Library/Developer/Xcode/DerivedData/

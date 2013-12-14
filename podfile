@@ -1,14 +1,14 @@
 platform :ios, '7.0'
 
 xcodeproj 'app.xcodeproj'
-pod 'AFNetworking', '~> 2.0'
 
 
-#target :debug do
+target :debug do
 	
-	#pod 'ObjectiveSugar', '~> 0.5'
+	pod 'ObjectiveSugar', '~> 0.5'
+	pod 'AFNetworking', '~> 2.0'
 
-#end
+end
 
 post_install do |installer|
 	
