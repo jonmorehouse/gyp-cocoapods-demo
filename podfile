@@ -1,18 +1,18 @@
 platform :ios, '7.0'
 
 xcodeproj 'app.xcodeproj'
+pod 'AFNetworking', '~> 2.0'
 
-pod 'ObjectiveSugar', '~> 0.5'
 
 #target :debug do
 	
-	#platform :ios, '7.0'
-
-	#pod 'AFNetworking', '~> 2.0'
+	#pod 'ObjectiveSugar', '~> 0.5'
 
 #end
 
 post_install do |installer|
+	
+	puts "POST INSTALL:"
 	
 	# can create schemes here for build for each element ...
 	installer.project.targets.each do |target|

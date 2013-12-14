@@ -23,14 +23,18 @@
 
 		"xcode_settings" : {
 
+			"SDKROOT": "iphoneos",
+			"IPHONEOS_DEPLOYMENT_TARGET": "7.0",
+			"OTHER_CFLAGS": ["-fobjc-arc"],
 			"INFOPLIST_FILE" : "<(plist_file)",
+			"ARCHS": "$(ARCHS_STANDARD_64_BIT)",
 			"CODE_SIGN_IDENTITY": "iPhone Developer: Sean McCoy (VB4U59V8X7)",
-			"PRODUCT_NAME": "fruitstrap-demo",
-			"GCC_PREFIX_HEADER": "",
-			"GCC_PRECOMPILE_PREFIX_HEADER": "",
-			"ALWAYS_SEARCH_USER_PATHS": "No",
-			"INSTALLATION_DIRECTORY": "<(build_directory)",
-			"CONFIGURATION_BUILD_DIR": "<(build_directory)",
+			"PRODUCT_NAME": "app",
+#			"GCC_PREFIX_HEADER": "",
+#			"GCC_PRECOMPILE_PREFIX_HEADER": "",
+#			"ALWAYS_SEARCH_USER_PATHS": "No",
+#			"INSTALLATION_DIRECTORY": "<(build_directory)",
+#			"CONFIGURATION_BUILD_DIR": "<(build_directory)",
 			"HEADER_SEARCH_PATHS": "$(inherited) src",
 		},
 
@@ -38,9 +42,9 @@
 
 			"libraries": [
 
-				"<(ios_sdk_dir)<(ios_sdk_version).sdk/System/Library/Frameworks/CoreGraphics.framework",
-				"<(ios_sdk_dir)<(ios_sdk_version).sdk/System/Library/Frameworks/Foundation.framework",
-				"<(ios_sdk_dir)<(ios_sdk_version).sdk/System/Library/Frameworks/UIKit.framework",
+				"$(SDKROOT)/System/Library/Frameworks/CoreGraphics.framework",
+				"$(SDKROOT)/System/Library/Frameworks/Foundation.framework",
+				"$(SDKROOT)/System/Library/Frameworks/UIKit.framework",
 			],
 		},
 
@@ -66,7 +70,7 @@
 		{
 			"target_name": "debug",
       			"product_name": "app.debug",
-      			"xcode_config_file": "./config/debug.xcconfig",
+      			#"xcode_config_file": "./config/debug.xcconfig",
 			
 			"postbuilds": [
 
@@ -81,15 +85,15 @@
 		{
 			"target_name": "test",
 			"product_name": "app.test",
-      			"xcode_config_file": "./config/test.xcconfig",
+      		#	"xcode_config_file": "./config/test.xcconfig",
 		},
 
 		# release for iOS application development
 		{
 			"target_name": "release",
 			"product_name": "app.release",
-      			"xcode_config_file": "./config/release.xcconfig",
-      			"mac_bundle_resources": [
+      			#"xcode_config_file": "./config/release.xcconfig",
+      			"ios_bundle_resources": [
 
 				# "test.xib",
 				# "test.strings"
