@@ -23,5 +23,5 @@ apps
 *.xcodeproj/
 *.xcworkspace/
 Pods/
-
+*lock
 
