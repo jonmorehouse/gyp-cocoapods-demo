@@ -18,5 +18,6 @@ build/
 *.REMOTE.*
 *.BASE.*
 
+# project specific apps
 apps
 app.xcodeproj/
