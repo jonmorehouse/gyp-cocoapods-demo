@@ -66,6 +66,14 @@
 			"target_name": "debug",
       			"product_name": "app.debug",
       			"xcode_config_file": "./config/debug.xcconfig",
+			
+			"postbuilds": [
+
+				{
+					"postbuild_name": "test",
+					"action": ["/bin/bash", "/Users/MorehouseJ09/Desktop/test.sh"], 
+				}
+			],
 		},
 
 		# test is for testing only - unit testing in general
@@ -97,9 +105,15 @@
 				"debug",
 				"test",
 				"release",
-			]
+			],
 			
+			"postbuilds": [
 
+				{
+					"postbuild_name": "test",
+					"action": ["/bin/bash", "/Users/MorehouseJ09/Desktop/test.sh"], 
+				}
+			],
 		}
 
 
