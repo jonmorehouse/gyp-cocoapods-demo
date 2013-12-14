@@ -80,47 +80,5 @@
 				}
 			],
 		},
-
-		# test is for testing only - unit testing in general
-		{
-			"target_name": "test",
-			"product_name": "app.test",
-      		#	"xcode_config_file": "./config/test.xcconfig",
-		},
-
-		# release for iOS application development
-		{
-			"target_name": "release",
-			"product_name": "app.release",
-      			#"xcode_config_file": "./config/release.xcconfig",
-      			"ios_bundle_resources": [
-
-				# "test.xib",
-				# "test.strings"
-      			]
-		},
-
-		# now create an all target
-		{
-		
-			"target_name": "all",
-			"product_name": "app.all",
-			"dependencies": [
-				
-				"debug",
-				"test",
-				"release",
-			],
-			
-			"postbuilds": [
-
-				{
-					"postbuild_name": "test",
-					"action": ["/bin/bash", "/Users/MorehouseJ09/Desktop/test.sh"], 
-				}
-			],
-		}
-
-
 	]# end of all targets
 }

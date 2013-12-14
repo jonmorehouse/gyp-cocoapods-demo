@@ -1,11 +1,11 @@
 platform :ios, '7.0'
-
 xcodeproj 'app.xcodeproj'
+inhibit_all_warnings!
 
+pod 'ObjectiveSugar', '~> 0.5'
 
-target :debug do
-	
-	pod 'ObjectiveSugar', '~> 0.5'
+target :debug, :exclusive => true do
+
 	pod 'AFNetworking', '~> 2.0'
 
 end
@@ -20,6 +20,6 @@ post_install do |installer|
 		puts "#{target.name}"		
 
 	end
-	
 end
+
 
