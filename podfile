@@ -1,0 +1,25 @@
+platform :ios, '7.0'
+
+xcodeproj 'app.xcodeproj'
+
+pod 'ObjectiveSugar', '~> 0.5'
+pod 'AFNetworking', '~> 2.0'
+
+target :debug do
+	
+	pod 'ObjectiveSugar', '~> 0.5'
+
+end
+
+
+post_install do |installer|
+	
+	installer.project.targets.each do |target|
+		
+		puts "#{target.name}"		
+
+	end
+	
+end
+
+

@@ -31,6 +31,7 @@
 			"ALWAYS_SEARCH_USER_PATHS": "No",
 			"INSTALLATION_DIRECTORY": "<(build_directory)",
 			"CONFIGURATION_BUILD_DIR": "<(build_directory)",
+			"HEADER_SEARCH_PATHS": "$(inherited)",
 		},
 
 		"link_settings": {

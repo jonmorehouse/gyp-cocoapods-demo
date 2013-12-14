@@ -1,0 +1,3 @@
+export CC=
+alias clean='rm -rf ~/Library/Developer/Xcode/DerivedData && rm -rf Pods && rm -rf app.xcodeproj && rm -rf app.xcworkspace'
+alias build='pod install && gyp app.gyp --depth=. -f xcode -DOS=ios && xcodebuild -target all -sdk iphoneos build'
