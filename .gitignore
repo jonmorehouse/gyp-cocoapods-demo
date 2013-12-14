@@ -20,4 +20,8 @@ build/
 
 # project specific apps
 apps
-app.xcodeproj/
+*.xcodeproj/
+*.xcworkspace/
+Pods/
+
+
