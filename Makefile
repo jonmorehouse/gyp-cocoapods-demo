@@ -1,7 +1,10 @@
 all: clean gyp pods open
 
+list:
+	xcodebuild -workspace 'app.xcworkspace' -list
+
 build:
-	xcodebuild
+	xcodebuild -workspace 'app.xcworkspace' -scheme all
 
 gyp:
 	gyp app.gyp --depth=. -f xcode -DOS=ios
@@ -10,7 +13,6 @@ pods:
 	pod install 
 
 open:
-
 	open app.xcworkspace
 
 clean:

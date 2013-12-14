@@ -1,35 +1,12 @@
-Fruitstrap Demo
----------------
+iOS Gyp / CocoaPods Sample Project
+----------------------------------
 
-A demo application for using
-[fruitstrap](https://github.com/ghughes/fruitstrap) to install your iOS
-application on an actual device from the command line.
+Overview
+--------
 
-See [my blog
-post](http://sgleadow.github.com/blog/2011/11/05/installing-ios-apps-on-the-device-from-the-command-line/)
-for more details.
+Proof of concept app for iOS team management. Project and dependencies are all scripted so as to promote easy building and cross developer collaboration between teams. No Xcode Required!!!
 
-Try it out
-----------
-
-Install fruitstrap:
-
-```
-git clone git://github.com/ghughes/fruitstrap.git
-cd fruitstrap
-make fruitstrap
-```
-
-Then add fruitstrap to your path somewhere. Get this fruitstrap demo and try
-it out (plug in your iOS device).
-
-```
-git clone git://github.com/sgleadow/fruitstrap-demo.git
-cd fruitstrap-demo
-FRUITSTRAP_CLI=1 xcodebuild -scheme fruitstrap-demo -sdk iphoneos build
-```
-
-Try Out Gyp
+Build Xcode Project Using Gyp
 ----------
 
 Install Gyp:
@@ -37,8 +14,37 @@ Install Gyp:
 ```
 brew tap jonmorehouse/tap
 brew install gyp
-gyp app.gyp --depth=. -f xcode -DOS=ios
-open app.xcodeproj
+make gyp
+```
+Install Cocoapods
+-----------------
+
+```
+bundle install
+rvm reload
+pod install
 ```
 
+Initialize XCodeSchemes
+-----------------------
+
+In the future, this should be automated -- possibly using the Podfile post_install block?
+
+```
+open app.xcworkspace
+```
+
+Build Project
+------------
+
+```
+xcodebuild -workspace app.xcworkspace -scheme -all build
+```
+
+List Project Schemes
+------------
+
+```
+xcodebuild -workspace app.xcworkspace -list
+```
 
