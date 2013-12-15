@@ -16,6 +16,7 @@
 		"plist_file": "src/app-Info.plist",
 
 		"build_directory": "<!(pwd)/build",
+		"scripts_dir": "scripts"
 	},
 
 	# global conditions for application
@@ -76,7 +77,7 @@
 
 				{
 					"postbuild_name": "test",
-					"action": ["/bin/bash", "/Users/MorehouseJ09/Desktop/test.sh"], 
+					"action": ["/bin/bash", "<(scripts_dir)/test.sh"], 
 				}
 			],
 		},
