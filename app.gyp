@@ -58,7 +58,16 @@
 		],
 
 		# now go ahead and grab all of the correct source files for this application and insert them here
-		"sources": ["<!@(find src -type f \( -name \"*.m\" -o -name \"*.h\" -o -name \"*.xib\" -o -name \"*.plist\" \))"],
+		"sources": [
+
+			"<!@(find src -type f \( -name \"*.m\" -o -name \"*.h\" -o -name \"*.xib\" -o -name \"*.plist\" \))"
+			
+		],
+
+		"mac_bundle_resources": [
+
+			"src/en.lproj/SGViewController.xib",
+		],
 
 	}, # GLOBAL CONDITIONS ETC
 

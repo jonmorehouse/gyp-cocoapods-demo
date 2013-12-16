@@ -17,6 +17,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+
+    int number = 3;
+    NSString * text = @"YAHOO";
+    NSLog(@"HELLO WORLD");
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
   self.viewController = [[SGViewController alloc] initWithNibName:@"SGViewController" bundle:nil];
