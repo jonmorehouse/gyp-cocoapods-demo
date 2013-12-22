@@ -16,7 +16,7 @@ end
 post_install do |installer|
 	
 	# need to look into this ... there were some issues with the saving and overwriting of the project
-	# update_project "app"
+	update_project "app"
 end
 
 

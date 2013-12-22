@@ -17,6 +17,9 @@ def update_project(project)
 	# now lets loop through each of the targets that are associated with this project file ...
 	project.targets.each do |target|
 
+		# xcconfig_file path 
+		path = File.join Dir.pwd, "config", "#{target.name}.xcconfig"
+
 		# grab the xxconfig file
 		xcconfig_file = project.files.select do |f|
 
@@ -24,8 +27,6 @@ def update_project(project)
 			f.name == "#{target.name}.xcconfig2"
 
 		end.first || lambda do
-			
-			path = File.join Dir.pwd, "config", "#{target.name}.xcconfig"
 			
 			# make sure file exists and if so, add it to the file
 			if File.exist? path
@@ -39,6 +40,7 @@ def update_project(project)
 
 				return nil
 			end
+
 		end.call
 
 		# stuck here -- keep getting weird "argument 
@@ -49,9 +51,17 @@ def update_project(project)
 			
 		# now lets set the configuration ...
 		target.build_configurations.each do |config|
+				
+			# if we have already created a configuration, update the path etc
+			if config.base_configuration_reference
+			
+				config.base_configuration_reference.path = path
 
-			# add the xcconfig file to the project target
-			config.base_configuration_reference = xcconfig_file
+			# otherwise just create a new base_configuration
+			else
+				config.base_configuration_reference = xcconfig_file
+
+			end
 		end
 	end
 
