@@ -31,11 +31,6 @@
 			"ARCHS": "$(ARCHS_STANDARD_64_BIT)",
 			"CODE_SIGN_IDENTITY": "iPhone Developer: Sean McCoy (VB4U59V8X7)",
 			"PRODUCT_NAME": "app",
-#			"GCC_PREFIX_HEADER": "",
-#			"GCC_PRECOMPILE_PREFIX_HEADER": "",
-#			"ALWAYS_SEARCH_USER_PATHS": "No",
-#			"INSTALLATION_DIRECTORY": "<(build_directory)",
-#			"CONFIGURATION_BUILD_DIR": "<(build_directory)",
 			"HEADER_SEARCH_PATHS": "$(inherited) src",
 		},
 
@@ -72,7 +67,7 @@
 
 	}, # GLOBAL CONDITIONS ETC
 
-	#"xcode_config_file": "config/debug.xcconfig",
+	"xcode_config_file": "config/debug.xcconfig",
 
 	# Schemes are user derived for running targets once they are built -- we don't want this as we want all developers to be able to run this automatically
 	# targets = ["debug", "test", "release"]
@@ -83,7 +78,7 @@
 		{
 			"target_name": "debug",
       			"product_name": "app.debug",
-      			#"xcode_config_file": "./config/debug.xcconfig",
+      			"xcode_config_file": "./config/debug.xcconfig",
 			
 			"postbuilds": [
 
@@ -98,14 +93,14 @@
 		{
 			"target_name": "test",
 			"product_name": "app.test",
-      			#"xcode_config_file": "./config/test.xcconfig",
+      			"xcode_config_file": "./config/test.xcconfig",
 		},
 
 		# release for iOS application development
 		{
 			"target_name": "release",
 			"product_name": "app.release",
-      			#"xcode_config_file": "./config/release.xcconfig",
+      			"xcode_config_file": "./config/release.xcconfig",
       			"ios_bundle_resources": [
 
 				# "test.xib",

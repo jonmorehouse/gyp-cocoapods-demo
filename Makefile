@@ -11,7 +11,7 @@ gyp:
 
 pods:
 	pod install 
-	ruby scripts/cocoapods_post_install
+	ruby scripts/cocoapods_post_install.rb
 
 open:
 	#open app.xcworkspace
