@@ -18,13 +18,16 @@ PODS:
   - AFNetworking/UIKit (2.0.3):
     - AFNetworking/NSURLConnection
   - ObjectiveSugar (0.9)
+  - SVProgressHUD (1.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - ObjectiveSugar (~> 0.5)
+  - SVProgressHUD
 
 SPEC CHECKSUMS:
   AFNetworking: e499052cbf3d743e9bb727bb37adb9dc2547ba15
   ObjectiveSugar: 81337e36790b5a157ee6ccdcf65c91393ca5d900
+  SVProgressHUD: 5e10939a296debf5fe5a5895eda9539b8b2114f1
 
 COCOAPODS: 0.28.0

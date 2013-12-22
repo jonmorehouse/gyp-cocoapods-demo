@@ -6,9 +6,17 @@
 //  Copyright (c) 2011 __MyCompanyName__. All rights reserved.
 //
 
+#import <SVProgressHUD.h>
 #import "SGViewController.h"
 
 @implementation SGViewController
+
+- (void)show
+{
+    
+    [SVProgressHUD show];
+    
+}
 
 - (void)didReceiveMemoryWarning
 {

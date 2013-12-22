@@ -11,9 +11,10 @@ gyp:
 
 pods:
 	pod install 
+	ruby scripts/cocoapods_post_install
 
 open:
-	open app.xcworkspace
+	#open app.xcworkspace
 
 clean:
 	rm -rf ~/Library/Developer/Xcode/DerivedData/

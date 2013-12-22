@@ -45,6 +45,7 @@
 
 				"$(SDKROOT)/System/Library/Frameworks/CoreGraphics.framework",
 				"$(SDKROOT)/System/Library/Frameworks/Foundation.framework",
+				"$(SDKROOT)/System/Library/Frameworks/QuartzCore.framework",
 				"$(SDKROOT)/System/Library/Frameworks/UIKit.framework",
 			],
 		},
@@ -71,6 +72,8 @@
 
 	}, # GLOBAL CONDITIONS ETC
 
+	#"xcode_config_file": "config/debug.xcconfig",
+
 	# Schemes are user derived for running targets once they are built -- we don't want this as we want all developers to be able to run this automatically
 	# targets = ["debug", "test", "release"]
 	"targets": [
@@ -95,7 +98,7 @@
 		{
 			"target_name": "test",
 			"product_name": "app.test",
-      		#	"xcode_config_file": "./config/test.xcconfig",
+      			#"xcode_config_file": "./config/test.xcconfig",
 		},
 
 		# release for iOS application development

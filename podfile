@@ -1,8 +1,11 @@
+require "./scripts/cocoapods_post_install"
+
 platform :ios, '7.0'
 xcodeproj 'app.xcodeproj'
 inhibit_all_warnings!
 
 pod 'ObjectiveSugar', '~> 0.5'
+pod 'SVProgressHUD'
 
 target :debug, :exclusive => true do
 
@@ -12,14 +15,8 @@ end
 
 post_install do |installer|
 	
-	puts "POST INSTALL:"
-	
-	# can create schemes here for build for each element ...
-	installer.project.targets.each do |target|
-		
-		puts "#{target.name}"		
-
-	end
+	# need to look into this ... there were some issues with the saving and overwriting of the project
+	# update_project "app"
 end
 
 
