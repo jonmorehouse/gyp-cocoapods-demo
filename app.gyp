@@ -67,7 +67,7 @@
 
 	}, # GLOBAL CONDITIONS ETC
 
-	"xcode_config_file": "config/debug.xcconfig",
+	#"xcode_config_file": "config/debug.xcconfig",
 
 	# Schemes are user derived for running targets once they are built -- we don't want this as we want all developers to be able to run this automatically
 	# targets = ["debug", "test", "release"]
